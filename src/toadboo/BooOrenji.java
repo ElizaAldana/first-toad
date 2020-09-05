@@ -1,10 +1,22 @@
 package toadboo;
 
-public class BooOrenji {
+import processing.core.PApplet;
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+public class BooOrenji extends Character {
 
+	PApplet app;
+	
+	public BooOrenji (int posX,int posY,PApplet app) {
+		super (posX,posY,app);
+		
+	}
+	public void loadImage() {
+		this.app.image(booorenji, 0, 0);
+
+	}
+	
+	public void move() {
+		
 	}
 
 }

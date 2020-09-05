@@ -1,10 +1,22 @@
 package toadboo;
 
-public class BooMidori {
+import processing.core.PApplet;
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+public class BooMidori extends Character {
 
+	PApplet app;
+	
+	public BooMidori (int posX,int posY,PApplet app) {
+		super (posX,posY,app);
+		
+	}
+	public void loadImage() {
+		this.app.image(boomidori, 0, 0);
+
+	}
+	
+	public void move() {
+		
 	}
 
 }

@@ -1,10 +1,20 @@
 package toadboo;
 
-public class Toad {
+import processing.core.PApplet;
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+public class Toad extends Character {
 
+	PApplet app;
+	
+	public Toad (int posX,int posY,PApplet app) {
+		super (posX,posY,app);
+		
 	}
-
+	public void loadImage() {
+		this.app.image(toad, 0, 0);
+	}
+	
+	public void move() {
+		
+	}
 }
