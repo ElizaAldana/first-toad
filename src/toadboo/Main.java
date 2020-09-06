@@ -13,6 +13,7 @@ public class Main extends PApplet {
 	PImage youlose;
 	PImage youwin;
 	PImage booedible;
+	PImage coin;
 	
 	//matrix
 	int row;
@@ -50,14 +51,16 @@ public class Main extends PApplet {
 	}
 	
 	public void  setup () {
-		screen= 2;
+		screen= 0;
 		board= loadImage("images/1x/board.png");
 		inpage= loadImage("images/1x/inpage.png");
 		lastscore= loadImage("images/1x/lastscore.png");
 		youlose= loadImage("images/1x/youlose.png");
 		youwin= loadImage("images/1x/youwin.png");
+		coin= loadImage("images/1x/coin.png");
 		row=20;
 		col=14;
+		
 	}
 	public void draw () {
 		
@@ -75,6 +78,8 @@ public class Main extends PApplet {
 			imageMode(CORNER);
 			image(board,0,0);
 			imageMode(CENTER);
+			
+			//coin images
 		break;
 		}
 		
