@@ -15,8 +15,21 @@ public class Main extends PApplet {
 	PImage booedible;
 	PImage coin;
 	
-	//class
+	
+	//call class
 	Score score;
+	Character toad;
+	Character booaka;
+	Character booao;
+	Character boomidori;
+	Character booorenji;
+	
+	//initial position characters
+	int posXtoad, posYtoad;
+	int posXbooaka, posYbooaka;
+	int posXbooao, posYbooao;
+	int posXboomidori, posYboomidori;
+	int posXbooorenji, posYbooorenji;
 	
 	//score of this game
 	int scoreGame;
@@ -29,7 +42,7 @@ public class Main extends PApplet {
 	int time;
 	int second;
 	
-	//matrix
+	//matrix board
 	int [][] mb = {
 			{9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9},
 			{9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9},
@@ -66,16 +79,46 @@ public class Main extends PApplet {
 		youwin= loadImage("images/1x/youwin.png");
 		coin = loadImage("images/1x/coin.png");
 		
+		//toad position
+		posXtoad = 1*50+25;
+		posYtoad = 12*50+25;
+		toad = new Toad (posXtoad, posYtoad, this);
+		//booaka position
+		posXbooaka = 8*50+25;
+		posYbooaka = 7*50+25;
+		booaka = new BooAka (posXbooaka, posYbooaka, this);
+		//booaka position
+		posXbooao = 9*50+25;
+		posYbooao = 6*50+25;
+		booao = new BooAo (posXbooao, posYbooao, this);
+		//boomidori position
+		posXboomidori = 10*50+25;
+		posYboomidori = 7*50+25;
+		boomidori = new BooMidori (posXboomidori, posYboomidori, this);
+		//booorenji position
+		posXbooorenji = 11*50+25;
+		posYbooorenji = 6*50+25;
+		booorenji = new BooOrenji (posXbooorenji, posYbooorenji, this);
+		//matrix row col
 		row=20;
 		col=14;
+		
 		//visualize score
 		scoreGame=0;
 		score = new Score(scoreGame,this);
+		
 		//visualize time
 		time=0;
 		second=0;
 		
 		//Matrix
+		for (int i = 0; i < col; i++) {
+			for (int j = 0; j <row; j++) {
+				if (mb [i][j] == 1) {
+					//Toad movement
+				}
+			}
+		}
 
 	}
 	
@@ -93,17 +136,17 @@ public class Main extends PApplet {
 			score.validateScore();
 		break;
 		case 2:
-			textSize (20);
+			textSize (30);
 			imageMode(CORNER);
 			image(board,0,0);
 			imageMode(CENTER);
-			text(scoreGame,155,48);
+			text(scoreGame,157,60);
 			if (screen == 2) {
 			scoreGame = scoreGame + 1;
 			}
 			
 			//time
-			text(time,492,49);
+			text(time,500,64);
 			second = second + 1;
 			if (second == 100) {
 				second = 0;
@@ -112,14 +155,36 @@ public class Main extends PApplet {
 				time=time + 1;
 			}
 			
-			//coin images
+			//Matrix game
 			for (int i = 0; i < col; i++) {
 				for (int j = 0; j <row; j++) {
+					//toad Image
+					if (mb [i][j] == 1) {
+						toad.loadImage();
+						}
+					//booaka Image
+					if (mb [i][j] == 1) {
+						booaka.loadImage();
+						}
+					//booaka Image
+					if (mb [i][j] == 1) {
+						booao.loadImage();
+						}
+					//boomidori Image
+					if (mb [i][j] == 1) {
+						boomidori.loadImage();
+						}
+					//booorenji Image
+					if (mb [i][j] == 1) {
+						booorenji.loadImage();
+						}
+					//coin Image
 					if(mb[i][j]==2) {
 						image(coin,j*50+25,i*50+25);
 					}
 				}
 			}
+			
 			
 			
 		break;

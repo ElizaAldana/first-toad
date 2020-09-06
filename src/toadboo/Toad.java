@@ -8,10 +8,11 @@ public class Toad extends Character {
 	
 	public Toad (int posX,int posY,PApplet app) {
 		super (posX,posY,app);
-		
+		this.app = app;
 	}
+	
 	public void loadImage() {
-		this.app.image(toad, 0, 0);
+		app.image(toad, moveX, moveY);
 	}
 	
 	public void move() {

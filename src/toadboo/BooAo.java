@@ -8,10 +8,10 @@ public class BooAo extends Character {
 
 	public BooAo (int posX,int posY,PApplet app) {
 		super (posX,posY,app);
-		
+		this.app = app;
 	}
 	public void loadImage() {
-		this.app.image(booao, 0, 0);
+		app.image(booao, moveX, moveY);
 
 	}
 	
