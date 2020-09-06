@@ -15,9 +15,4 @@ public class BooMidori extends Character {
 		app.image(boomidori,moveX,moveY);
 
 	}
-	
-	public void move() {
-		
-	}
-
 }

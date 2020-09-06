@@ -39,27 +39,64 @@ public class Main extends PApplet {
 	int row;
 	int col;
 	
+	//move
+	int toadMx;
+	int toadMy;
+	
 	//time
 	int time;
 	int second;
 	
+	//Matrix?
+	int gameMatrixX;
+	int gameMatrixY;
+	
+	//Boo movements
+	int booMidoriMx;
+	int booMidoriMy;
+	int booOrenjiMx;
+	int booOrenjiMy;
+	int booAoMx;
+	int booAoMy;
+	int booAkaMx;
+	int booAkaMy;
+	
+	//Powers
+	int grapeMx;
+	int grapeMy;
+	int grapePosX;
+	int grapePosY;
+	
+	int cherryMx;
+	int cherryMy;
+	int cherryPosX;
+	int cherryPosY;
+	
 	//matrix board
-	int [][] mb = {
-			{9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9},
-			{9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9},
-			{9,2,2,2,2,2,9,2,2,2,2,2,2,9,2,2,2,2,2,9},
-			{9,8,2,2,2,2,9,2,9,9,9,9,2,9,2,2,2,2,2,9},
-			{9,2,2,2,9,2,9,2,2,2,2,2,2,9,2,9,2,2,2,9},
-			{9,9,9,9,9,2,2,2,2,2,2,2,2,2,2,9,9,9,9,9},
-			{9,2,2,2,2,2,2,9,2,4,2,6,9,2,2,2,2,2,2,9},
-			{9,2,2,9,9,2,2,9,3,2,5,2,9,2,2,9,9,2,2,9},
-			{9,2,2,2,2,2,2,2,9,9,9,9,2,2,2,2,2,2,7,9},
-			{9,9,9,9,9,2,2,2,2,2,2,2,2,2,2,9,9,9,9,9},
-			{9,2,2,2,9,2,2,2,2,2,2,2,2,2,2,9,2,2,2,9},
-			{9,2,2,2,2,2,2,9,2,2,2,2,9,2,2,2,2,2,2,9},
-			{9,1,2,2,2,2,2,9,2,2,2,2,9,2,2,2,2,2,2,9},
-			{9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9},
+	int[][] mb = {
+			{9,9,9,9,9,9,9,9,9,9,9,9,9,9},
+			{9,9,2,8,2,9,2,2,2,9,2,2,1,9},
+			{9,9,2,2,2,9,2,2,2,9,2,2,2,9},
+			{9,9,2,2,2,9,2,9,2,9,2,2,2,9},
+			{9,9,2,2,9,9,2,9,2,9,9,2,2,9},
+			{9,9,2,2,2,2,2,2,2,2,2,2,2,9},
+			{9,9,9,9,9,2,2,2,2,2,2,2,2,9},
+			{9,9,2,2,2,2,9,9,2,2,2,9,9,9},
+			{9,9,2,9,2,2,2,3,9,2,2,2,2,9},
+			{9,9,2,9,2,2,4,2,9,2,2,2,2,9},
+			{9,9,2,9,2,2,2,5,9,2,2,2,2,9},
+			{9,9,2,9,2,2,6,2,9,2,2,2,2,9},
+			{9,9,2,2,2,2,9,9,2,2,2,9,9,9},
+			{9,9,9,9,9,2,2,2,2,2,2,2,2,9},
+			{9,9,2,2,2,2,2,2,2,2,2,2,2,9},
+			{9,9,2,2,9,9,2,9,2,9,9,2,2,9},
+			{9,9,2,2,2,9,2,9,2,9,2,2,2,9},
+			{9,9,2,2,2,9,2,2,2,9,2,2,2,9},
+			{9,9,2,2,2,9,2,2,7,9,2,2,2,9},
+			{9,9,9,9,9,9,9,9,9,9,9,9,9,9},
 			};
+			
+	
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -84,25 +121,16 @@ public class Main extends PApplet {
 
 		
 		//toad position
-		posXtoad = 1*50+25;
-		posYtoad = 12*50+25;
 		toad = new Toad (posXtoad, posYtoad, this);
 		//booaka position
-		posXbooaka = 8*50+25;
-		posYbooaka = 7*50+25;
 		booaka = new BooAka (posXbooaka, posYbooaka, this);
 		//booaka position
-		posXbooao = 9*50+25;
-		posYbooao = 6*50+25;
 		booao = new BooAo (posXbooao, posYbooao, this);
 		//boomidori position
-		posXboomidori = 10*50+25;
-		posYboomidori = 7*50+25;
 		boomidori = new BooMidori (posXboomidori, posYboomidori, this);
 		//booorenji position
-		posXbooorenji = 11*50+25;
-		posYbooorenji = 6*50+25;
-		booorenji = new BooOrenji (posXbooorenji, posYbooorenji, this);
+		booorenji = new BooOrenji (posXbooorenji, posYbooorenji,this);
+		
 		//matrix row col
 		row=20;
 		col=14;
@@ -115,17 +143,7 @@ public class Main extends PApplet {
 		time=0;
 		second=0;
 		
-		//Matrix
-		for (int i = 0; i < col; i++) {
-			for (int j = 0; j <row; j++) {
-				if (mb [i][j] == 1) {
-		//Toad movement
-					
-				}
-			}
-		}
-
-	}
+		
 	
 	public void draw () {
 		
@@ -146,9 +164,6 @@ public class Main extends PApplet {
 			image(board,0,0);
 			imageMode(CENTER);
 			text(scoreGame,157,60);
-			if (screen == 2) {
-			scoreGame = scoreGame + 1;
-			}
 			
 			//time
 			text(time,500,64);
@@ -161,47 +176,44 @@ public class Main extends PApplet {
 			}
 			
 			//Matrix game
-			for (int i = 0; i < col; i++) {
-				for (int j = 0; j <row; j++) {
+			for (int i = 0; i < row; i++) {
+				for (int j = 0; j < col; j++) {
 					//toad Image
 					if (mb [i][j] == 1) {
 						toad.loadImage();
 						}
 					//booaka Image
-					if (mb [i][j] == 1) {
+					if (mb [i][j] == 3) {
 						booaka.loadImage();
 						}
 					//booaka Image
-					if (mb [i][j] == 1) {
+					if (mb [i][j] == 4) {
 						booao.loadImage();
 						}
 					//boomidori Image
-					if (mb [i][j] == 1) {
+					if (mb [i][j] == 6) {
 						boomidori.loadImage();
 						}
 					//booorenji Image
-					if (mb [i][j] == 1) {
+					if (mb [i][j] == 5) {
 						booorenji.loadImage();
 						}
 					//grape image
 					if (mb [i][j] == 7) {
-						image(grape,18*50+20,8*50+20);
+						image(grape,grapeMx*50+20,grapeMy*50+20);
 						}
-					//grape image
+					//cherry image
 					if (mb [i][j] == 8) {
-						image(cherry,1*50+25,3*50+25);
+						image(cherry,cherryMx*50+25,cherryMy*50+25);
 						}
 					//coin Image
-					if(mb[i][j]==2) {
-						image(coin,j*50+25,i*50+25);
+					if(mb[i][j]== 2) {
+						image(coin,i*50+25,j*50+25);
 					
 					}
 				}
 			}
-			
-			
-			
-		break;
+			break;
 		}
 		
 		text(mouseX+","+mouseY,mouseX,mouseY); //To know the coordinates
@@ -212,8 +224,9 @@ public class Main extends PApplet {
 		case 0:
 			//Click area (specific condition) 
 			if (mouseX>374 && mouseY>446 && mouseX<624 && mouseY<498) {
-				screen = 2;
+				screen = 2;	
 				scoreGame = 0;
+				
 		}
 			if (mouseX>392 && mouseY>521 && mouseX<604 && mouseY<570) {
 				screen = 1;
@@ -238,6 +251,89 @@ public class Main extends PApplet {
 		}
 	}
 	public void keyPressed() {
+		if(keyCode==UP) {
+			//System.out.println(toad.getMatrixY());
+			System.out.println(mb[gameMatrixX][gameMatrixY]);
+			if(mb[gameMatrixX][gameMatrixY - 1] == 2 ||
+					mb[gameMatrixX][gameMatrixY - 1] == 0 ||
+					mb[gameMatrixX][gameMatrixY - 1] == 3 ||
+					mb[gameMatrixX][gameMatrixY - 1] == 4 ||
+					mb[gameMatrixX][gameMatrixY - 1] == 5 ||
+					mb[gameMatrixX][gameMatrixY - 1] == 6 ||
+					mb[gameMatrixX][gameMatrixY - 1] == 7 ||
+					mb[gameMatrixX][gameMatrixY - 1] == 8) {
+				
+				toad.moveUp();
+				gameMatrixY = gameMatrixY - 1;
+				
+				//Score erasing coins
+				if(mb[gameMatrixX][gameMatrixY] == 2) {
+					mb[gameMatrixX][gameMatrixY] = 0;
+					scoreGame = scoreGame + 100;
+				}
+			}
+		}
+		if(keyCode == DOWN) {
+			if(mb[gameMatrixX][gameMatrixY + 1] == 2 ||
+					mb[gameMatrixX][gameMatrixY + 1] == 1 ||
+					mb[gameMatrixX][gameMatrixY + 1] == 0 ||
+					mb[gameMatrixX][gameMatrixY + 1] == 3 ||
+					mb[gameMatrixX][gameMatrixY + 1] == 4 ||
+					mb[gameMatrixX][gameMatrixY + 1] == 5 ||
+					mb[gameMatrixX][gameMatrixY + 1] == 6 ||
+					mb[gameMatrixX][gameMatrixY + 1] == 7 ||
+					mb[gameMatrixX][gameMatrixY + 1] == 8) {
+				toad.moveDown();
+				gameMatrixY = gameMatrixY + 1;
+				
+				//Score erasing coins
+				if(mb[gameMatrixX][gameMatrixY] == 2) {
+					mb[gameMatrixX][gameMatrixY] = 0;
+					scoreGame = scoreGame + 100;
+				}
+			}
+		}
+		if(keyCode == RIGHT) {
+			if(mb[gameMatrixX + 1][gameMatrixY] == 2 ||
+					mb[gameMatrixX + 1][gameMatrixY] == 0 ||
+					mb[gameMatrixX + 1][gameMatrixY] == 3 ||
+					mb[gameMatrixX + 1][gameMatrixY] == 4 ||
+					mb[gameMatrixX + 1][gameMatrixY] == 5 ||
+					mb[gameMatrixX + 1][gameMatrixY] == 6 ||
+					mb[gameMatrixX + 1][gameMatrixY] == 7 ||
+					mb[gameMatrixX + 1][gameMatrixY] == 8) {
+				toad.moveRight();
+				gameMatrixX = gameMatrixX + 1;
+				
+				//Score erasing coins
+				if(mb[gameMatrixX][gameMatrixY] == 2) {
+					mb[gameMatrixX][gameMatrixY] = 0;
+					scoreGame = scoreGame + 100;
+				}
+			}
+		}
+		if(keyCode == LEFT) {
+			if(mb[gameMatrixX - 1][gameMatrixY] == 2 || 
+					mb[gameMatrixX - 1][gameMatrixY] == 1 ||
+					mb[gameMatrixX - 1][gameMatrixY] == 0 ||
+					mb[gameMatrixX - 1][gameMatrixY] == 3 ||
+					mb[gameMatrixX - 1][gameMatrixY] == 4 ||
+					mb[gameMatrixX - 1][gameMatrixY] == 5 ||
+					mb[gameMatrixX - 1][gameMatrixY] == 6 ||
+					mb[gameMatrixX - 1][gameMatrixY] == 7 ||
+					mb[gameMatrixX - 1][gameMatrixY] == 8
+					) {
+				toad.moveLeft();
+				gameMatrixX = gameMatrixX - 1;
+				
+				//Score erasing coins
+				if(mb[gameMatrixX][gameMatrixY] == 2) {
+					mb[gameMatrixX][gameMatrixY] = 0;
+					scoreGame = scoreGame + 100;
+				}
+			}
+			
+		}
+	}	
 	
-	}
-	}
+}

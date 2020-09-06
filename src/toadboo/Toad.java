@@ -15,7 +15,4 @@ public class Toad extends Character {
 		app.image(toad, moveX, moveY);
 	}
 	
-	public void move() {
-		
-	}
 }

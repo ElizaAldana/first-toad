@@ -15,9 +15,5 @@ public class BooAka extends Character {
 		app.image(booaka, moveX, moveY);
 
 	}
-	
-	public void move() {
-		
-	}
 
 }

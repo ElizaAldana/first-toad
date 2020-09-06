@@ -6,7 +6,7 @@ public class BooOrenji extends Character {
 
 	PApplet app;
 	
-	public BooOrenji (int posX,int posY,PApplet app) {
+	public BooOrenji (int posX,int posY, PApplet app) {
 		super (posX,posY,app);
 		this.app = app;
 	}
@@ -15,8 +15,6 @@ public class BooOrenji extends Character {
 
 	}
 	
-	public void move() {
-		
-	}
-
+	
+	
 }

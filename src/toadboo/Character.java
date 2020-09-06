@@ -14,6 +14,10 @@ public abstract class Character {
 	PImage boomidori;
 	PImage booorenji;
 	PImage toad;
+	
+	//matrix movement
+	int matrixX,matrixY;
+	
 
 	public Character (int posX,int posY,PApplet app) {
 		moveX=posX;
@@ -37,7 +41,25 @@ public abstract class Character {
 	public void powerGrapestar() {
 		
 	}
-	public abstract void move();
+	
+	public void moveDown() {
+		this.moveY= this.moveY +50;
+		this.matrixY = this.matrixY +1;
+	}
+	public void moveUp() {
+		this.moveY= this.moveY-50;
+		this.matrixY = this.matrixY -1;
+	}
+	public void moveRight() {                                                                      
+		this.moveX= this.moveX +50;
+		this.matrixX= this.matrixX +1;
+	}
+	public void moveLeft() {      
+		this.moveX= this.moveX -50;
+		this.matrixX= this.matrixX -1;
+
+	}
+	
 	
 	public PApplet getApp() {
 		return app;
@@ -87,6 +109,19 @@ public abstract class Character {
 	public void setToad(PImage toad) {
 		this.toad = toad;
 	}
+	public int getMatrixX() {
+		return matrixX;
+	}
+	public void setMatrixX(int matrixX) {
+		this.matrixX = matrixX;
+	}
+	public int getMatrixY() {
+		return matrixY;
+	}
+	public void setMatrixY(int matrixY) {
+		this.matrixY = matrixY;
+	}
+	
 
 	
 }

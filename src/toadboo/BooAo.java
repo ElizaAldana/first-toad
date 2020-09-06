@@ -15,8 +15,5 @@ public class BooAo extends Character {
 
 	}
 	
-	public void move() {
-		
-	}
 
 }
