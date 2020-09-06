@@ -15,12 +15,19 @@ public class Main extends PApplet {
 	PImage booedible;
 	PImage coin;
 	
+	//class
+	Score score;
+	
+	//score of this game
+	int scoreGame;
+	
 	//matrix
 	int row;
 	int col;
 	
 	//time
 	int time;
+	int second;
 	
 	//matrix
 	int [][] mb = {
@@ -60,6 +67,14 @@ public class Main extends PApplet {
 		coin= loadImage("images/1x/coin.png");
 		row=20;
 		col=14;
+		//visualize score
+		scoreGame=0;
+		score = new Score(scoreGame,this);
+		//visualize time
+		time=0;
+		second=0;
+		
+		
 		
 	}
 	public void draw () {
@@ -73,12 +88,27 @@ public class Main extends PApplet {
 		case 1:
 			imageMode(CENTER);
 			image(lastscore,width/2,height/2);
+			score.validateScore();
 		break;
 		case 2:
+			textSize (20);
 			imageMode(CORNER);
 			image(board,0,0);
 			imageMode(CENTER);
+			text(scoreGame,155,48);
+			if (screen == 2) {
+			scoreGame = scoreGame + 1;
+			}
 			
+			//time
+			text(time,492,49);
+			second = second + 1;
+			if (second == 100) {
+				second = 0;
+			}
+			if (screen == 2 && second == 99) {
+				time=time + 1;
+			}
 			//coin images
 		break;
 		}
@@ -92,6 +122,7 @@ public class Main extends PApplet {
 			//Click area (specific condition) 
 			if (mouseX>374 && mouseY>446 && mouseX<624 && mouseY<498) {
 				screen = 2;
+				scoreGame = 0;
 		}
 			if (mouseX>392 && mouseY>521 && mouseX<604 && mouseY<570) {
 				screen = 1;
@@ -108,6 +139,9 @@ public class Main extends PApplet {
 		case 2:
 			if (mouseX>904 && mouseY>30 && mouseX<944 && mouseY<69) {
 				screen = 0;
+				score = new Score(scoreGame,this);
+				second = 0;
+				time = 0;
 		}
 		break;
 		}

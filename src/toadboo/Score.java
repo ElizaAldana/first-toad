@@ -5,17 +5,14 @@ import processing.core.PApplet;
 public class Score {
 
 	private int score;
-	private int posX;
-	private int posY;
 	PApplet app;
 	
-	public Score (int score) {
+	public Score (int score, PApplet app) {
 		this.score=score;
-		this.posX = 10;
-		this.posY = 20;
+		this.app = app;
 	}
 	
 	public void validateScore() {
-		app.text(this.score, posX, posY);
+		app.text(this.score, 442, 364);
 	}
 }
