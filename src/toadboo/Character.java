@@ -13,9 +13,6 @@ public abstract class Character {
 	PImage booao;
 	PImage boomidori;
 	PImage booorenji;
-	PImage cherry;
-	PImage coin;
-	PImage grape;
 	PImage toad;
 
 	public Character (int posX,int posY,PApplet app) {
@@ -83,24 +80,6 @@ public abstract class Character {
 	}
 	public void setBooorenji(PImage booorenji) {
 		this.booorenji = booorenji;
-	}
-	public PImage getCherry() {
-		return cherry;
-	}
-	public void setCherry(PImage cherry) {
-		this.cherry = cherry;
-	}
-	public PImage getCoin() {
-		return coin;
-	}
-	public void setCoin(PImage coin) {
-		this.coin = coin;
-	}
-	public PImage getGrape() {
-		return grape;
-	}
-	public void setGrape(PImage grape) {
-		this.grape = grape;
 	}
 	public PImage getToad() {
 		return toad;

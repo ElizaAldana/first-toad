@@ -13,8 +13,9 @@ public class Main extends PApplet {
 	PImage youlose;
 	PImage youwin;
 	PImage booedible;
+	PImage cherry;
 	PImage coin;
-	
+	PImage grape;
 	
 	//call class
 	Score score;
@@ -78,6 +79,9 @@ public class Main extends PApplet {
 		youlose= loadImage("images/1x/youlose.png");
 		youwin= loadImage("images/1x/youwin.png");
 		coin = loadImage("images/1x/coin.png");
+		grape = loadImage("images/1x/grape.png");
+		cherry = loadImage("images/1x/cherry.png");
+
 		
 		//toad position
 		posXtoad = 1*50+25;
@@ -115,7 +119,8 @@ public class Main extends PApplet {
 		for (int i = 0; i < col; i++) {
 			for (int j = 0; j <row; j++) {
 				if (mb [i][j] == 1) {
-					//Toad movement
+		//Toad movement
+					
 				}
 			}
 		}
@@ -178,9 +183,18 @@ public class Main extends PApplet {
 					if (mb [i][j] == 1) {
 						booorenji.loadImage();
 						}
+					//grape image
+					if (mb [i][j] == 7) {
+						image(grape,18*50+20,8*50+20);
+						}
+					//grape image
+					if (mb [i][j] == 8) {
+						image(cherry,1*50+25,3*50+25);
+						}
 					//coin Image
 					if(mb[i][j]==2) {
 						image(coin,j*50+25,i*50+25);
+					
 					}
 				}
 			}
