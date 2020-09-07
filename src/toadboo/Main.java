@@ -282,27 +282,41 @@ public class Main extends PApplet {
 					if (mb [i][j] == 1) {
 						toad.loadImage();
 						}
-					
+					//coin Image
+					if(mb[i][j]== 2) {
+						image(coin,i*50+25,j*50+25);	
+					}
 					//Booaka Image
 					if (mb [i][j] == 3) {
 						booaka.loadImage();
-						int a = (int) random(0,20);
-						if(a > 15) {
-							if(mb[booAkaMx][booAkaMy - 1] == 0 && moveBoo == true) {	
-								booaka.moveUp();
-								booAkaMy = booAkaMy - 1;
-								} else if(mb[booAkaMx][booAkaMy - 1] == 0 && moveBoo == true) {
-								booaka.moveDown();
-								booAkaMy = booAkaMy + 1;
-								}else if(mb[booAkaMx + 1][booAkaMy] == 0 && moveBoo == true) {
-								booaka.moveRight();
-								booAkaMx = booAkaMx + 1;
-								}else if(mb[booAkaMx - 1][booAkaMy] == 0 && moveBoo == true) {
-								booaka.moveLeft();
-								booAkaMx = booAkaMx - 1;
-									}
-									
+						int a = (int) random(0,200);
+						if(a > 190) {
+							if(gameMatrixX < booAkaMx) {
+								if(mb[booAkaMx - 1][booAkaMy] != 9 && moveBoo == true) {	
+									booaka.moveLeft();
+									booAkaMx = booAkaMx - 1;
+								}
 							}
+							if(gameMatrixX > booAkaMx) {
+									if(mb[booAkaMx + 1][booAkaMy] != 9 && moveBoo == true) {	
+										booaka.moveRight();
+										booAkaMx = booAkaMx + 1;
+									}
+								}	
+							}
+							if(gameMatrixY < booAkaMy) {
+								if(mb[booAkaMx][booAkaMy - 1] != 9 && moveBoo == true) {	
+									booaka.moveUp();
+									booAkaMy = booAkaMy - 1;
+								}
+							}
+							if(gameMatrixY > booAkaMy) {
+								if(mb[booAkaMx][booAkaMy + 1] != 9 && moveBoo == true) {	
+									booaka.moveDown();
+									booAkaMy = booAkaMy + 1;
+								}
+							}
+						
 
 					}
 					
@@ -341,6 +355,7 @@ public class Main extends PApplet {
 						}
 					
 				//Asigned numbers on the matrix	
+					
 					//boomidori Image
 					if (mb [i][j] == 6) {
 						boomidori.loadImage();
@@ -357,10 +372,7 @@ public class Main extends PApplet {
 					if (mb [i][j] == 8) {
 						image(cherry,cherryMx*50+25,cherryMy*50+25);
 						}
-					//coin Image
-					if(mb[i][j]== 2) {
-						image(coin,i*50+25,j*50+25);	
-					}
+					
 				}
 			}
 			break;
