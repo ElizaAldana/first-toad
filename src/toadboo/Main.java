@@ -374,7 +374,8 @@ public class Main extends PApplet {
 			break;
 		}
 		
-		text(mouseX+","+mouseY,mouseX,mouseY); //To know the coordinates
+		//To know the coordinates
+		//text(mouseX+","+mouseY,mouseX,mouseY); //To know the coordinates
 		
 	}
 	public void mouseClicked() {
@@ -529,6 +530,11 @@ public class Main extends PApplet {
 			if(mb[booMidoriMx - 1][booMidoriMy] != 9 && moveBoo == true) {
 				boomidori.moveLeft();
 				booMidoriMx = booMidoriMx - 1;
+			}
+			//NoCopyCat MoveRight Boo
+			if(mb[booOrenjiMx +1 ][booOrenjiMy] != 9 && moveBoo == true) {
+				booorenji.moveRight();
+				booOrenjiMx = booOrenjiMx + 1;
 			}
 		}
 	}	
