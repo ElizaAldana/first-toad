@@ -251,7 +251,22 @@ public class Main extends PApplet {
 				time=time + 1;
 			}
 			
+			//BooKillyou
+			if(gameMatrixX == booAoMx && gameMatrixY == booAoMy || 
+			gameMatrixX == booAkaMx && gameMatrixY == booAkaMy ||
+			gameMatrixX == booMidoriMx && gameMatrixY == booMidoriMy ||
+			gameMatrixX == booOrenjiMx && gameMatrixY == booOrenjiMy) {
+				screen = 4;
+			}
 			
+			
+			//Power Stop Boo Timer
+			if(moveBoo == false) {
+				timer = timer + 1;
+				if(timer >= 100) {
+					moveBoo = true;
+				}
+			}
 			
 			
 			//Winning Page
