@@ -337,6 +337,7 @@ public class Main extends PApplet {
 								}
 								break;
 							}
+								
 						}
 					
 				//Asigned numbers on the matrix	
@@ -447,7 +448,11 @@ public class Main extends PApplet {
 				boomidori.moveUp();
 				booMidoriMy = booMidoriMy - 1;
 			}
-			
+			//NoCopyCat MoveDown Boo
+			if(mb[booOrenjiMx][booOrenjiMy + 1] != 9 && moveBoo == true) {
+				booorenji.moveDown();
+				booOrenjiMy = booOrenjiMy + 1;
+			}
 		}
 		if(keyCode == DOWN) {
 			if(mb[gameMatrixX][gameMatrixY + 1] != 9) {
@@ -470,6 +475,11 @@ public class Main extends PApplet {
 				boomidori.moveDown();
 				booMidoriMy = booMidoriMy + 1;
 			}
+			//NoCopyCat MoveUp Boo
+			if(mb[booOrenjiMx][booOrenjiMy - 1] != 9 && moveBoo == true) {
+				booorenji.moveUp();
+				booOrenjiMy = booOrenjiMy - 1;
+			}
 		}
 		if(keyCode == RIGHT) {
 			if(mb[gameMatrixX + 1][gameMatrixY] != 9) {
@@ -491,6 +501,11 @@ public class Main extends PApplet {
 			if(mb[booMidoriMx + 1][booMidoriMy] != 9 && moveBoo == true) {
 				boomidori.moveRight();
 				booMidoriMx = booMidoriMx + 1;
+			}
+			//NoCopyCat MoveLeft Boo
+			if(mb[booOrenjiMx - 1][booOrenjiMy] != 9 && moveBoo == true) {
+				booorenji.moveLeft();
+				booOrenjiMx = booOrenjiMx - 1;
 			}
 		}
 		if(keyCode == LEFT) {
